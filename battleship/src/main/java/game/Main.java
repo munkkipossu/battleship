@@ -16,11 +16,13 @@ public class Main {
      * @param args the command line arguments
      */
     
-    
-    public Player humanPlayer = new Player();
-    public Player computer = new Player("computer");
-    
     public static void main(String[] args) {
+        System.out.println("I'm alive");
+
+        Player humanPlayer = new Player();
+        Player computer = new Player("computer");
+        
+        humanPlayer.setShip(0, 1, 2, true);
     }
     
 }

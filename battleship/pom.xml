@@ -23,22 +23,35 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>labra</groupId>
+                <artifactId>battleship</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <instrumentation>
+                        <includes>
+                            <include>game/*.class</include>
+                         </includes>
+                    </instrumentation>
                 </configuration>
-                <version>3.2</version>
+                <version>2.7</version>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
+                <groupId>labra</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.7</version>
             </plugin>
+            
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.1.4</version>
+                <configuration>
+                    <targetClasses>
+                        <param>game.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>game.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
