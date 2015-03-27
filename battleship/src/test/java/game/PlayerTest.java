@@ -38,70 +38,60 @@ public class PlayerTest {
     public void tearDown() {
     }
 
-    @Test
-    public void newOpponentsSquareHasNotBeenHit(){
-        Player player = new Player();
-        assertFalse(player.hasSquareBeenHit(0,0));
-    }
+
     
     @Test
     public void squareIsHitWhenFired(){
         Player player = new Player();
-        player.fireAtSquare(0,0);
-        assertTrue(player.hasSquareBeenHit(0,0));
+        Board board = new Board();
+        assertTrue(player.fireAtSquare(0,0,board));
     }
     
-    
-    //    public boolean setShip(int ship, int x, int y, boolean orientation){
+    @Test
+    public void squareCannotBeHitTwice(){
+        Player player = new Player();
+        Board board = new Board();
+        player.fireAtSquare(0,0, board);
+        assertFalse(player.fireAtSquare(0,0,board));
+    }
+
+    @Test
+    public void squareOutsideBoardCannotBeHit(){
+        Player player = new Player();
+        Board board = new Board();
+        assertFalse(player.fireAtSquare(-1,0, board));
+
+    }
     
     @Test
-    public void PlacingNonexistantShipFails(){
+    public void changingOrientationWorks(){
         Player player = new Player();
-        assertFalse(player.setShip(10, 0,0, false));
+        Ship ship = new Ship(3);
+        player.rotateShip(ship);
+        assertTrue(ship.getOrientation());
     }
     
     @Test
     public void PlacingShipProperlyInsideWorks(){
         Player player = new Player();
-        assertTrue(player.setShip(2,0,0,false));
+        Ship ship = new Ship(3);
+                
+        assertTrue(player.placeShip(ship,0,0));
     }
     
     @Test
     public void PlacingShipOutSideBoardFails(){
         Player player = new Player();
-        assertFalse(player.setShip(2,15,15,false));
+        Ship ship = new Ship(3);
+        assertFalse(player.placeShip(ship,15,15));
     }
     
     @Test
     public void PlacingShipOnTheBorderFails(){
         Player player = new Player();
-        assertFalse(player.setShip(2,8,8,false));
+        Ship ship = new Ship(3);
+        assertFalse(player.placeShip(ship,8,8));
     }
     
-    @Test
-    public void SquareWithNoShipHasNoShip(){
-        Player player = new Player();
-        assertFalse(player.getOwnSquare(0,0).getContainsShip());
-    }
-    
-    @Test
-    public void PlacingShipIsSeenBySquare(){
-        Player player = new Player();
-        player.setShip(0,0,0,false);
-        assertTrue(player.getOwnSquare(0,0).getContainsShip());
-    }
 
-    @Test
-    public void PlacingShipIsSeenBySquare2(){
-        Player player = new Player();
-        player.setShip(0,0,0,false);
-        assertTrue(player.getOwnSquare(1,0).getContainsShip());
-    }
-    
-    @Test
-    public void SquareWithNoShipHasNoShip2(){
-        Player player = new Player();
-        player.setShip(0,0,0,false);
-        assertFalse(player.getOwnSquare(2,0).getContainsShip());
-    }
 }

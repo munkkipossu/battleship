@@ -22,7 +22,7 @@ public class Main {
         Player humanPlayer = new Player();
         Player computer = new Player("computer");
         
-        humanPlayer.setShip(0, 1, 2, true);
+       // humanPlayer.placeShip();
     }
     
 }

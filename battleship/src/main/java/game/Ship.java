@@ -27,9 +27,8 @@ public class Ship {
         this.orientation = false;
     }
     
-    public void setShip(Square location, boolean orientation){
+    public void setShip(Square location){
         this.location = location;
-        this.orientation = orientation;        
     }
     
     public int getSize(){
@@ -42,6 +41,15 @@ public class Ship {
     
     public boolean getOrientation(){
         return this.orientation;
+    }
+    
+    public void rotateShip(){
+        if (this.orientation == false){
+            this.orientation = true;
+        }else
+            orientation = false;
+        
+        return;
     }
     
 }
