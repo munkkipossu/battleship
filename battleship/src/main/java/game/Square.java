@@ -12,15 +12,10 @@ package game;
  */
 public class Square {
     
-    // I'm not sure if the square needs to know its own location, right now i'm not using that for anything
-    private int x;
-    private int y;
-    private boolean hasBeenHit;
+      private boolean hasBeenHit;
     private boolean containsShip;
     
-    public Square(int x, int y){
-        this.x = x;
-        this.y = y;
+    public Square(){
         this.hasBeenHit = false;
         this.containsShip = false;
     }

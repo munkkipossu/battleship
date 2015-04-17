@@ -32,7 +32,7 @@ public class Board {
         this.board = new Square[size][size];
         for(int i=0; i<size; i++){
             for(int j=0; j<size; j++){
-                this.board[i][j]=new Square(i,j);
+                this.board[i][j]=new Square();
             }
         }        
         this.ships = new ArrayList<Ship>();

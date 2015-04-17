@@ -10,6 +10,9 @@ package game;
  *
  * @author tolaakso
  */
+
+import javax.swing.SwingUtilities;
+
 public class Main {
 
     /**
@@ -18,7 +21,8 @@ public class Main {
     
     public static void main(String[] args) {
         System.out.println("I'm alive");
-
+        GUI.StartMenu mainScreen = new GUI.StartMenu();
+        SwingUtilities.invokeLater(mainScreen);
         Player humanPlayer = new Player();
         Player computer = new Player("computer");
         
