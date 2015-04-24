@@ -13,19 +13,24 @@ package game;
 
 import javax.swing.SwingUtilities;
 
-public class Main {
+public class Game {
 
-    /**
-     * @param args the command line arguments
-     */
+    private Player human;
+    private Player computer;
+    private Board gameboard;
+    
+    
+    public Game(String name){
+        this.human = new Player(name);
+        this.computer = new Player("computer");
+        this.gameboard = new Board();        
+    }
+    
     
     public static void main(String[] args) {
-        System.out.println("I'm alive");
         GUI.StartMenu mainScreen = new GUI.StartMenu();
         SwingUtilities.invokeLater(mainScreen);
-        Player humanPlayer = new Player();
-        Player computer = new Player("computer");
-        
+       
        // humanPlayer.placeShip();
     }
     

@@ -24,6 +24,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class StartMenu implements Runnable {
@@ -37,15 +38,13 @@ public class StartMenu implements Runnable {
     }
     */
     
-    
-    
     public StartMenu(){        
     }
     
     @Override
     public void run(){
         frame = new JFrame("Battleships");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(900, 300));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,30 +55,39 @@ public class StartMenu implements Runnable {
     }
     
     private void createComponents(Container container) {
-        GridLayout layout = new GridLayout(7,1);
+        GridLayout layout = new GridLayout(1,3);
         container.setLayout(layout);
     
-        container.add(new JLabel("Let the GAMES begin"));
-
-        JTextArea boardSize = new JTextArea("Boardsize");
-        container.add(boardSize);
         
-        container.add(new JLabel("How many players?"));
-        
-        JRadioButton onePlayer = new JRadioButton("One");
-        JRadioButton twoPlayers = new JRadioButton("Two");
+        JPanel leftSide = new JPanel();
+        leftSide.setLayout(new GridLayout(3,1));
+        leftSide.add(new JLabel("Let the GAMES begin"));
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(onePlayer);
-        buttonGroup.add(twoPlayers);
-
-        container.add(onePlayer);
-        container.add(twoPlayers);
+        JTextArea playerName = new JTextArea("Player name");
+        leftSide.add(playerName);
         
         JButton startButton = new JButton("Start");
-        startButton.addActionListener(new GameStarterListener());
+        startButton.addActionListener(new StartButtonListener(playerName));
         
-        container.add(startButton);
+        leftSide.add(startButton);
+        container.add(leftSide);
+        
+        int gridSize = 10;
+        JPanel ownBoard = new JPanel();
+        ownBoard.setLayout(new GridLayout(gridSize, gridSize));
+        for (int i = 0; i < gridSize; i++)
+        {
+            for (int j = 0; j < gridSize; j++)
+            {
+                JButton button = new JButton("(" + i + ", " + j + ")");
+                ownBoard.add(button);
+            }
+        }
+        container.add(ownBoard);
+        
+        
+        JTextArea shipsHere = new JTextArea("ShipsHere");
+        container.add(shipsHere);
         
     }
 
@@ -88,3 +96,18 @@ public class StartMenu implements Runnable {
     }
     
 }
+
+
+
+               /*
+                button.setActionCommand("(" + i + ", " + j + ")");
+                button.addActionListener(new ActionListener()
+                {
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        JButton but = (JButton) ae.getSource();
+                        positionLabel.setText(
+                            but.getActionCommand() + ADDED_TEXT);                           
+                    }
+                });
+                */

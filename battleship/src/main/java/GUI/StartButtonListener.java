@@ -20,14 +20,18 @@ import javax.swing.*;
  * @author tolaakso
  */
 
-public class GameStarterListener implements ActionListener {
+public class StartButtonListener implements ActionListener {
 
-    public GameStarterListener(){
+    public StartButtonListener(){
+    }
+    
+    public StartButtonListener(JTextArea playerName){
+        
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-     //   SwingUtilities.invokeLater(gameScreen);
+        BoardGUI gameBoard = new BoardGUI();
+        SwingUtilities.invokeLater(gameBoard);
     }
 }
