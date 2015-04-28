@@ -11,27 +11,32 @@ package game;
  * @author tolaakso
  */
 
+import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
 public class Game {
 
     private Player human;
     private Player computer;
-    private Board gameboard;
+    private int[] ships;
     
-    
-    public Game(String name){
-        this.human = new Player(name);
+    public Game(){
+        this.human = new Player("pekka pelaaja");
         this.computer = new Player("computer");
-        this.gameboard = new Board();        
+        this.ships = new int[4];
+        ships[0] =1;
+        ships[1] =2;
+        ships[2] =1;
+        ships[3] =1;
     }
-    
-    
+        
     public static void main(String[] args) {
+        Game game = new Game();
         GUI.StartMenu mainScreen = new GUI.StartMenu();
         SwingUtilities.invokeLater(mainScreen);
-       
-       // humanPlayer.placeShip();
     }
     
+    public boolean hasSquareBeenHit(int i, int j){
+        return human.hasSquareBeenHit(i,j);
+    }
 }

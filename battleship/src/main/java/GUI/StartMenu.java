@@ -30,6 +30,7 @@ import javax.swing.SwingUtilities;
 public class StartMenu implements Runnable {
     
     private JFrame frame;
+
     
     /*
     public static void main(String[] args) {
@@ -85,9 +86,23 @@ public class StartMenu implements Runnable {
         }
         container.add(ownBoard);
         
+     
+       
+        JPanel ships = new JPanel();
+        ships.setLayout(new GridLayout(5,2));
         
-        JTextArea shipsHere = new JTextArea("ShipsHere");
-        container.add(shipsHere);
+        JTextArea shipSize = new JTextArea("Ship size");
+        ships.add(shipSize);
+        JTextArea shipsLeft = new JTextArea("Ships Left");
+        ships.add(shipsLeft);
+        
+        for(int i=0; i<4; i++){
+            JButton button = new JButton("(" + (i + 2) + ")");
+            ships.add(button);
+            JButton button2 = new JButton("1");
+            ships.add(button2);
+        }
+        container.add(ships);
         
     }
 

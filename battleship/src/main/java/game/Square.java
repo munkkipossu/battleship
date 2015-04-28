@@ -12,7 +12,7 @@ package game;
  */
 public class Square {
     
-      private boolean hasBeenHit;
+    private boolean hasBeenHit;
     private boolean containsShip;
     
     public Square(){

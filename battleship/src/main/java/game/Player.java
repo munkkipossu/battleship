@@ -17,7 +17,7 @@ import java.util.List;
 public class Player {
     
     private String name;
-    private Board ownBoard;
+    private Board board;
 //    private Board opponentsBoard;
     
     public Player(){
@@ -26,7 +26,7 @@ public class Player {
     
     public Player(String name){
         this.name = name;
-        this.ownBoard = new Board();
+        this.board = new Board();
     }
    
     public boolean fireAtSquare(int x, int y, Board opponentsBoard){ 
@@ -38,7 +38,15 @@ public class Player {
     }
     
     public boolean placeShip(Ship ship, int x, int y){
-        return this.ownBoard.placeShip(ship, x,y);
+        return this.board.placeShip(ship, x,y);
     }
-   
+    
+    public Square getSquare(int i, int j){
+        return this.board.getSquare(i,j);
+    }
+    
+    public boolean hasSquareBeenHit(int i, int j){
+        return this.board.hasSquareBeenHit(i, j);
+    }
+    
 }
