@@ -66,15 +66,15 @@ public class PlayerTest {
     @Test
     public void changingOrientationWorks(){
         Player player = new Player();
-        Ship ship = new Ship(3);
+        Ship ship = new Ship(3, true);
         player.rotateShip(ship);
-        assertTrue(ship.getOrientation());
+        assertFalse(ship.getOrientation());
     }
     
     @Test
     public void PlacingShipProperlyInsideWorks(){
         Player player = new Player();
-        Ship ship = new Ship(3);
+        Ship ship = new Ship(3, true);
                 
         assertTrue(player.placeShip(ship,0,0));
     }
@@ -82,14 +82,14 @@ public class PlayerTest {
     @Test
     public void PlacingShipOutSideBoardFails(){
         Player player = new Player();
-        Ship ship = new Ship(3);
+        Ship ship = new Ship(3, true);
         assertFalse(player.placeShip(ship,15,15));
     }
     
     @Test
     public void PlacingShipOnTheBorderFails(){
         Player player = new Player();
-        Ship ship = new Ship(3);
+        Ship ship = new Ship(3, true);
         assertFalse(player.placeShip(ship,8,8));
     }
     

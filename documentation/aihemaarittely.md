@@ -5,14 +5,6 @@
 **Toiminnot:**
 - Aloita peli
 	* Sijoita laivat
-	* Vuoropohjaisesti 'tulita' vastustajan laivoja
-	* Pelaajan voittaessa pelaajan nimi + tarvittujen siirtojen määrä kirjataan listaan
-
-- Aseta nimi
-	* pelaaja kirjoittaa/tallentaa nimensä
-
-- Tarkistele parhaiten pelanneiden listaa
-
 
 *Mahdollisia* toimintoja
 - Valitse pelilaudan koko
@@ -22,4 +14,12 @@
 - Nollaa parhaiten pelanneiden lista
 
 - Vuorolla mahdollista tulittaa kerran jokaisella laivalla
+
+	* Vuoropohjaisesti 'tulita' vastustajan laivoja
+	* Pelaajan voittaessa pelaajan nimi + tarvittujen siirtojen määrä kirjataan listaan
+
+- Aseta nimi
+	* pelaaja kirjoittaa/tallentaa nimensä
+
+- Tarkistele parhaiten pelanneiden listaa
 

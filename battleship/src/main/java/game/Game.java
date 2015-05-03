@@ -31,12 +31,30 @@ public class Game {
     }
         
     public static void main(String[] args) {
-        Game game = new Game();
         GUI.StartMenu mainScreen = new GUI.StartMenu();
         SwingUtilities.invokeLater(mainScreen);
     }
     
     public boolean hasSquareBeenHit(int i, int j){
         return human.hasSquareBeenHit(i,j);
+    }
+    
+    public int getShipsLeft(int i){
+        return ships[i];
+    }
+    
+    public boolean placeShip(int shipSize, int x, int y, boolean shipDirection){
+        if(shipSize < 2 || shipSize > 5)
+            return false;
+
+        Ship ship = new Ship(shipSize, shipDirection);
+        if(ships[shipSize-2] == 0)
+            return false;
+        else if(human.placeShip(ship, x, y)){
+            ships[shipSize-2]--;
+            return true;
+        }
+        else
+            return false;
     }
 }
